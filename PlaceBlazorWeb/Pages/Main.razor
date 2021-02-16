@@ -1,0 +1,8 @@
+@* @page "/main"
+@using PlaceBlazorWeb.Data
+@using PlaceBlazorWeb.Pages.TouristSpot
+@inject PlaceService _placeService
+@inject AppState _appState
+@implements IDisposable
+
+@if (Places == null) *@

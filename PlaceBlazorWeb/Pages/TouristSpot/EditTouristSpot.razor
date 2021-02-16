@@ -1,0 +1,48 @@
+@using PlaceBlazorWeb.Data
+@inject PlaceService _placeService
+@inject AppState _appState
+
+@code
+{
+    [Parameter] public Place Place {get;set;}
+    private Place PlaceCopy {get;set;}
+    bool IsReadOnlyMode {get;set;} = false;
+
+    protected override void OnInitialized()
+    {
+        PlaceCopy = new Place
+        {
+            Id = Place.Id,
+            Name = Place.Name,
+            Location = Place.Location,
+            About = Place.About,
+            Reviews = Place.Reviews,
+            ImageData = Place.ImageData,
+            LastUpdated = Place.LastUpdated
+        };
+    }
+
+    private void NotifyStateChange(Place place)
+    {
+        _appState.SetAppState(place);
+    }
+
+    protected async Task HandleValidSubmit()
+    {
+        await _placeService.UpdatePlaceAsync(Place);
+        IsReadOnlyMode = true;
+        NotifyStateChange(Place);
+    }
+
+    private void UndoChanges()
+    {
+        IsReadOnlyMode = true;
+        if (Place.Name.Trim() != PlaceCopy.Name.Trim() ||
+        Place.Location.Trim() != PlaceCopy.Location.Trim() ||
+        Place.About.Trim() != PlaceCopy.About.Trim())
+        {
+            Place = PlaceCopy;
+            NotifyStateChange(PlaceCopy);
+        }
+    }
+}    
