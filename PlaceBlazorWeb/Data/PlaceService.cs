@@ -14,13 +14,10 @@ namespace PlaceBlazorWeb.Data
         private HubConnection _hubConnection;
         public PlaceService(HttpClient httpClient)
         {
-            _httpClient = httpClient;
+            _httpClient = httpClient; 
         }
-
         public string NewPlaceName { get; set; }
-
         public int NewPlaceId { get; set; }
-
         public event Action OnChange;
 
         public async Task InitializeSignalR()
@@ -28,22 +25,22 @@ namespace PlaceBlazorWeb.Data
             _hubConnection = new HubConnectionBuilder()
                 .WithUrl($"{_httpClient.BaseAddress.AbsoluteUri}PlaceApiHub")
                 .Build();
-                
+
             _hubConnection.On<int, string>("NotifyNewPlaceAdded", (placeId, placeName) =>
             {
                 UpdateUIState(placeId, placeName);
             });
+
             await _hubConnection.StartAsync();
         }
 
         public void UpdateUIState(int placeId, string placeName)
         {
             NewPlaceId = placeId;
-
             NewPlaceName = placeName;
-
             NotifyStateChanged();
         }
+
         private void NotifyStateChanged() => OnChange?.Invoke();
 
         public async Task<IEnumerable<Place>> GetPlacesAsync()
@@ -68,5 +65,5 @@ namespace PlaceBlazorWeb.Data
             var response = await _httpClient.PutAsJsonAsync("/api/places", place);
             response.EnsureSuccessStatusCode();
         }
-    }  
+    }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,6 +12,11 @@ namespace PlaceBlazorWeb.Data
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
+        private static readonly string[] Locations = new[]
+        {
+            "Bangkok", "Nonthaburi", "Chaingmai", "HatYai", "Rayong", "Ranong", "Chonburi", "HuaHin", "Home"
+        };
+
         public Task<WeatherForecast[]> GetForecastAsync(DateTime startDate)
         {
             var rng = new Random();
@@ -18,7 +24,7 @@ namespace PlaceBlazorWeb.Data
             {
                 Date = startDate.AddDays(index),
                 TemperatureC = rng.Next(-20, 55),
-                Location = "Nonthaburi",
+                Location = Locations[rng.Next(Locations.Length)],
                 Summary = Summaries[rng.Next(Summaries.Length)]
             }).ToArray());
         }

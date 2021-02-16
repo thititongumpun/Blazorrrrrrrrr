@@ -30,7 +30,7 @@ namespace PlaceApi
         {
             services.AddInMemoryDatabaseService("PlaceDb");
             services.AddControllers()
-                     .AddJsonOptions(options => { options.JsonSerializerOptions.WriteIndented = true; });
+                        .AddJsonOptions(options => { options.JsonSerializerOptions.WriteIndented = true; });
             services.AddSignalR();
             services.AddResponseCompression(opts =>
             {
@@ -80,6 +80,7 @@ namespace PlaceApi
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<PlaceApiHub>("/PlaceApiHub");
             });
         }
     }

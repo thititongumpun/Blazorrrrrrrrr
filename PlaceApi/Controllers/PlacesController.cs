@@ -13,12 +13,12 @@ namespace PlaceApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PlaceController : ControllerBase
+    public class PlacesController : ControllerBase
     {
         private readonly PlaceDbContext _context;
         private readonly IHubContext<PlaceApiHub> _hubContext;
 
-        public PlaceController(PlaceDbContext context, IHubContext<PlaceApiHub> hubContext)
+        public PlacesController(PlaceDbContext context, IHubContext<PlaceApiHub> hubContext)
         {
             _context = context;
             _hubContext = hubContext;
