@@ -35,11 +35,21 @@ namespace PlaceApi.Db
                     new Place
                     {
                         Id = 2,
-                        Name = "TheMall ngamwongwan",
+                        Name = "TheMall Ngamwongwan",
                         Location = "Nonthaburi",
                         About = "One of best department in thailand",
                         Reviews = 10,
                         ImageData = GetImage("themall.png", "image/png"),
+                        LastUpdated = DateTime.Now
+                    },
+                    new Place
+                    {
+                        Id = 3,
+                        Name = "Home Pro",
+                        Location = "Bkk",
+                        About = "Shopping Mall",
+                        Reviews = 10,
+                        ImageData = GetImage("homepro.jpg", "image/jpg"),
                         LastUpdated = DateTime.Now
                     }
                 );
