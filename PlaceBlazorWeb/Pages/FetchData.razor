@@ -19,6 +19,7 @@ else
                 <th>Date</th>
                 <th>Temp. (C)</th>
                 <th>Temp. (F)</th>
+                <th>Location</th>
                 <th>Summary</th>
             </tr>
         </thead>
@@ -29,6 +30,7 @@ else
                     <td>@forecast.Date.ToShortDateString()</td>
                     <td>@forecast.TemperatureC</td>
                     <td>@forecast.TemperatureF</td>
+                    <td>@forecast.Location</td>
                     <td>@forecast.Summary</td>
                 </tr>
             }
