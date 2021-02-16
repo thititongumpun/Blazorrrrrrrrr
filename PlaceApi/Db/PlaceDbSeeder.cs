@@ -39,7 +39,7 @@ namespace PlaceApi.Db
                         Location = "Nonthaburi",
                         About = "One of best department in thailand",
                         Reviews = 10,
-                        ImageData = GetImage("central.jpg", "image/jpeg"),
+                        ImageData = GetImage("themall.png", "image/png"),
                         LastUpdated = DateTime.Now
                     }
                 );
@@ -52,7 +52,7 @@ namespace PlaceApi.Db
         {
             var path = Path.Combine(Environment.CurrentDirectory, "Db/Images", fileName);
             var imageBytes = File.ReadAllBytes(path);
-            return $"data:{fileType},base64,{Convert.ToBase64String(imageBytes)}";
+            return $"data:{fileType};base64,{Convert.ToBase64String(imageBytes)}";
         }
     }
 }
