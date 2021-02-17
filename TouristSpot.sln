@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaceApi", "PlaceApi\PlaceA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaceBlazorWeb", "PlaceBlazorWeb\PlaceBlazorWeb.csproj", "{11B9501C-8F5A-46EB-AE4F-1A0011A899E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlacePWA", "PlacePWA\PlacePWA.csproj", "{3D2E51B9-7330-44C5-83FC-F1DE0B9CB7AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{11B9501C-8F5A-46EB-AE4F-1A0011A899E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11B9501C-8F5A-46EB-AE4F-1A0011A899E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11B9501C-8F5A-46EB-AE4F-1A0011A899E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D2E51B9-7330-44C5-83FC-F1DE0B9CB7AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D2E51B9-7330-44C5-83FC-F1DE0B9CB7AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D2E51B9-7330-44C5-83FC-F1DE0B9CB7AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D2E51B9-7330-44C5-83FC-F1DE0B9CB7AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
